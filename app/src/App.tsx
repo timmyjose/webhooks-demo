@@ -17,7 +17,7 @@ const Stack = createNativeStackNavigator<RootStackParamsList>()
 export function App() {
   // set up push notifications
   useEffect(() => {
-    const enabled = requestUserPermission()
+    requestUserPermission()
   }, [])
 
   useEffect(() => {
@@ -25,6 +25,8 @@ export function App() {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       Alert.alert(JSON.stringify(remoteMessage))
     })
+
+    return unsubscribe
   }, [])
 
   return (

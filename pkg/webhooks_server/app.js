@@ -22,17 +22,46 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 
+const WEBHOOKS_HANDLER_URL = 'https://e0d0-103-5-134-18.ngrok-free.app/webhook'
+
+app.post('/webhook', async (req, res) => {
+  console.warn(`Webhook request received: ${JSON.stringify(req.body)}`)
+
+  const fetch = (await import('node-fetch')).default
+
+  // send a POST to the webhooks handler
+  const user = {
+    name: req.body.name,
+    age: Number(req.body.age)
+  }
+
+  setTimeout(async () => {
+    console.log('Sending user payload to the WebHooks handler...')
+    try {
+      const backendRes = await fetch(WEBHOOKS_HANDLER_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user)
+      })
+
+      console.log('Backend res = ', backendRes)
+      if (backendRes.ok) {
+        res.status(200).send('Processed webhooks call')
+      } else {
+        res.status(500).send('Failed to send user to webhooks handler')
+      }
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Internal Server Error')
+    }
+    }, 5000)
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404))
-})
-
-app.post('/webhook', (req, res) => {
-  console.log(`Webhook request received: ${JSON.stringify(req)}`)
-
-  // send a POST to the webhooks handler
-
-  res.status(200).send('Processed webhooks call')
 })
 
 // error handler

@@ -1,5 +1,4 @@
 import messaging from '@react-native-firebase/messaging'
-import { useEffect } from 'react'
 import { PermissionsAndroid, Platform } from 'react-native'
 
 const requestUserPermission = async (): Promise<boolean> => {
