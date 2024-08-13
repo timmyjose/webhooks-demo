@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "402942330166",
+    "project_id": "webhooksdemo-8f9be",
+    "storage_bucket": "webhooksdemo-8f9be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402942330166:android:704b17929d2adb6cc61f97",
+        "android_client_info": {
+          "package_name": "com.timmyjose.webhooksdemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANdpIfEYTExC28uYcYNtIZSo6r2v9UWUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

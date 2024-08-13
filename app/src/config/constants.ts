@@ -1,0 +1,1 @@
+export const WEBHOOKS_SERVER_URL = `${process.env.EXPO_PUBLIC_SERVER}`
