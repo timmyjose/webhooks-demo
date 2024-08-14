@@ -68,4 +68,4 @@ $ yarn setup --clean && yarn android
 
 ## Demo
 
-![WebHooks Demo](https://github.com/timmyjose/webhooks-demo/raw/main/demo/webhooks_demo.gif)
+![WebHooks Demo](https://github.com/timmyjose/webhooks-demo/blob/main/demo/webhooks_demo.gif)
