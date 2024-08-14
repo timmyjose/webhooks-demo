@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 
-const WEBHOOKS_HANDLER_URL = 'https://e0d0-103-5-134-18.ngrok-free.app/webhook'
+const WEBHOOKS_HANDLER_URL = 'https://6c27-103-5-134-18.ngrok-free.app/webhook'
 
 app.post('/webhook', async (req, res) => {
   console.warn(`Webhook request received: ${JSON.stringify(req.body)}`)

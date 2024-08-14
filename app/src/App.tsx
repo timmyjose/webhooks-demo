@@ -23,9 +23,9 @@ export function App() {
   useEffect(() => {
     // foreground
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-      Alert.alert(JSON.stringify(remoteMessage))
+    const notification = `${remoteMessage.notification.title}\n${remoteMessage.data.message}`
+      Alert.alert(notification)
     })
-
     return unsubscribe
   }, [])
 
